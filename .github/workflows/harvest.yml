@@ -22,7 +22,7 @@ on:
         options:
           - "true"
           - "false"
-        default: "true"
+        default: "false"
       limit:
         description: "Max videos to process, blank = all"
         required: false
@@ -81,7 +81,7 @@ jobs:
           SAVE_FLAG=""
           VALIDATE_FLAG=""
 
-          if [ "${{ github.event.inputs.live_only || 'true' }}" = "true" ]; then LIVE_FLAG="--live-only"; fi
+          if [ "${{ github.event.inputs.live_only || 'false' }}" = "true" ]; then LIVE_FLAG="--live-only"; fi
           if [ "${{ github.event.inputs.save_all_transcripts || 'true' }}" = "true" ]; then SAVE_FLAG="--save-all-transcripts"; fi
           if [ "${{ github.event.inputs.validate_tickers || 'true' }}" = "true" ]; then VALIDATE_FLAG="--validate-tickers"; fi
 
